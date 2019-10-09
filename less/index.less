@@ -20,7 +20,7 @@ time, mark, audio, video {
 	margin: 0;
 	padding: 0;
 	border: 0;
-	font-size: 62.5%;
+	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
 }
@@ -50,7 +50,8 @@ table {
 
 /* Set every element's box-sizing to border-box */
 * {
-    box-sizing: border-box;
+	box-sizing: border-box;
+	font-size: 62.5%
 }
 
 html, body {
@@ -59,19 +60,28 @@ html, body {
 
 /* Code starts here */
 
-.container {
-	display: flex;
+/* Variable example*/
+
+@company-black:  black;
+@company-grey: grey;
+@company-light-grey: lightgrey;
+
+/* Mixin example*/
+
+.company-container {
+    display: flex;
 	max-width: 1000px;
 	margin: auto;
 	flex-wrap: wrap;
-	box-sizing: border-box;
-	border: 3px solid red;
+}
+
+.container {
+	.company-container();
 
 	header {
 		display: flex;
 		width: 100%;
 		padding: 3% 0;
-		border: 3px solid green;
 		justify-content: flex-end;
 		margin: 0 5%;
 		
@@ -80,15 +90,15 @@ html, body {
 			width: 33%;
 			justify-content: space-between;
 			align-items: center;
-			border: 3px solid purple;
 			
 			a {
 				text-decoration: none;
-				color: black;
+				color: @company-black;
+				font-weight: bold;
 					
 			}
 			a:hover {
-				color: grey;
+				color: @company-grey;
 			}
 		}
 	}
@@ -96,12 +106,13 @@ html, body {
 	.top-content {
 		display: flex;
 		flex-direction: column;
-		border: 3px solid purple;
+		background: @company-light-grey;
 		margin: 0 5%;
 		width: 100%;
+		height: 550px;
 
 		.top-image {
-			height: 50%;
+			height: 40%;
 			width: 33%;
 			margin: 3%;
 		}
@@ -109,13 +120,180 @@ html, body {
 		.top-content-bottom {
 			display: flex;
 			flex-direction: column;
-			border: 3px solid orange;
 			margin: 0 3%;
 
 			h1 {
 				font-size: 3rem;
 			}
+
+			h2 {
+				font-size: 1.2rem;
+				padding: 1% 0% 3% 0;
+				border-bottom: 1px dotted grey;
+			}
+
+			p {
+				padding: 3% 0 0 0;
+				line-height: 1.3;
+			}
+
+			.first-button {
+				padding: 2% 0;
+				width: 20%;
+				background: white;
+				margin-top: 3%;
+				font-size: 1.2rem;
+			}
+
+			.first-button:hover {
+				color: white;
+				background: @company-black;
+				cursor: pointer;
+			}
 		}
+	}
+
+	.middle-content {
+		display: flex;
+		flex-direction: row;
+		margin: 3% 5%;
+		justify-content: space-between;
+		padding-bottom: 3%;
+
+
+		.middle-content-left {
+			width: 48%;
+
+			h2 {
+				font-size: 2rem;
+				margin: 3% 0;
+				font-weight: bold;
+			}
+
+			p {
+				line-height: 1.2;
+				font-size: 1.2rem;
+			}
+		}
+
+		.middle-content-right {
+			width: 48%;
+
+			h2 {
+				font-size: 1.8rem;
+				margin: 3% 0;
+				font-weight: bold;
+			}
+
+			ul {
+				border: 1px solid grey;
+				line-height: 1.6;
+			}
+
+			li {
+				border-top: 1px solid grey;
+				padding: 0 0 0 2%;
+				font-size: 1.4rem;
+			}
+
+			li:first-child {
+				border-top: none;
+			}
+		}
+	}
+
+	.bottom-content {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		margin: 0 5%;
+
+		h2 {
+			font-size: 1.8rem;
+			width: 100%;
+			padding-bottom: 3%;
+			font-weight: bold;
+		}
+
+		.grid-container {
+			display: flex;
+			line-height: 2;
+
+			.grid-container1 {
+				width: 20%;
+
+				ul li {
+					border-top: 1px solid grey;
+					padding-left: 5%;
+					font-size: 1.2rem;
+					font-weight: bold;
+				}
+
+				ul li:nth-child(1) {
+					font-weight: bold;
+				}
+
+				ul li:nth-child(2) {
+					background: lightgrey;	
+				}
+
+				ul li:nth-child(4) {
+					background: lightgrey;	
+				}
+			}
+
+			.grid-container2 {
+				width: 40%;
+
+				ul li {
+					border-top: 1px solid grey;
+					font-size: 1.2rem;
+				}
+
+				ul li:nth-child(1) {
+					font-weight: bold;
+				}
+
+				ul li:nth-child(2) {
+					background: lightgrey;	
+				}
+
+				ul li:nth-child(4) {
+					background: lightgrey;	
+				}
+			}
+
+			.grid-container3 {
+				width: 40%;
+
+				ul li {
+					border-top: 1px solid grey;
+					font-size: 1.2rem;
+				}
+
+				ul li:nth-child(1) {
+					font-weight: bold;
+				}
+
+				ul li:nth-child(2) {
+					background: lightgrey;	
+				}
+
+				ul li:nth-child(4) {
+					background: lightgrey;	
+				}
+			}
+		}
+	}
+
+	footer {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		margin: 3% 3% 0 3%;
+		padding: 3% 0 3% 0;
+		background: grey;
+		color: white;
 	}
 }
 
